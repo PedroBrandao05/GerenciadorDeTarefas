@@ -7,13 +7,13 @@ Conceitos trabalhados:
 -Salvando dados no armazenamento local
 
 Linguagens utilizadas:
--HTML
--CSS
--JavaScript
+- HTML
+- CSS
+- JavaScript
 
 ---------------------------------
 
 TODO:
 
--Incrementar Responsividade
--Incrementar localStorage
+- Incrementar Responsividade
+- Incrementar localStorage
