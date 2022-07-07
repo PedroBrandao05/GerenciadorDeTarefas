@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="./assets/style/style.css" />
+    <link rel="stylesheet" href="./assets/style/reset.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,500;0,700;0,800;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.png" />
+  </head>
+  <body>
+    <div class="nav">
+      <button class="abrir__nav-lateral">
+        <img src="./assets/img/Menu.png" alt="abrir navegação" />
+      </button>
+    </div>
+    <div class="lateral-nav">
+      <button class="fechar__nav">X</button>
+      <h1 class="logo"><b class="logo-bold">Task</b>Manager</h1>
+      <button class="adicionarTarefa">
+        Adicionar Tarefa
+        <p class="mais">+</p>
+      </button>
+      <form class="formulario" action="#">
+        <input
+          type="text"
+          name="nomeTarefa"
+          class="itemFormulario inputNome"
+          placeholder="Nome da tarefa"
+        />
+        <input
+          type="text"
+          name="descricao"
+          class="itemFormulario inputDescricao"
+          placeholder="Descrição"
+        />
+        <input
+          type="button"
+          class="itemFormulario inputEnviar"
+          value="Adicionar"
+        />
+      </form>
+    </div>
+
+    <div class="principal">
+
+    <h2 class="tituloTarefas">Tarefas</h2>
+
+    <ol class="tarefas">
+    
+    </ol>
+
+    <hr class="barraVerde">
+
+    <h2 class="tituloTarefasConcluidas">Tarefas Concluídas</h2>
+
+    <ol class="tarefasConcluidas">
+
+      <p class="textoTarefaConcluida">Você ainda não concluiu nenhuma tarefa :(</p>
+
+    </ol>
+  </div>
+    <script type="module" src="./assets/js/main.js"></script>
+    <script src="./assets/js/botoes.js"></script>
+  </body>
+</html>

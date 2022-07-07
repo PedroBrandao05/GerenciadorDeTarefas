@@ -1,0 +1,138 @@
+
+.principal {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  margin: 4em;
+  align-items: center;
+}
+
+.tituloTarefas{
+   font-family: var(--main-font);
+   font-size: 28px;
+   font-weight: 700;
+   color: var(--green-pasta);
+}
+
+.tarefas {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  margin-bottom: 3.5em;
+}
+
+.itemTarefa {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 3em;
+  color: white;
+  font-family: var(--main-font);
+  border: 1px solid white;
+  border-radius: 6px;
+  padding-inline: 1.5em;
+  padding-block: 0.75em;
+  justify-content: space-between;
+}
+
+.botoes {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.tarefaConcluida {
+  border: none;
+  background-color: transparent;
+  background-image: url(../img/botao\ check.png);
+  width: 20px;
+  height: 20px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.removerTarefa {
+  background-color: transparent;
+  border: none;
+  background-image: url(../img/botao\ remove.png);
+  width: 15px;
+  height: 15px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.abrirDescricao {
+  background-color: transparent;
+  border: none;
+  background-image: url(../img/descricao.png);
+  width: 15px;
+  height: 20px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.descricaoDaTarefa {
+  display: none;
+}
+
+.descricaoDaTarefa.on {
+  display: block;
+  margin-top: 0.5em;
+  border: 1px solid white;
+  border-top: none;
+}
+
+.texto__descricaoDaTarefa {
+  color: white;
+  font-family: var(--main-font);
+  font-size: 14px;
+  font-weight: 300;
+  padding: 1.5em;
+}
+
+/* Aba tarefa concluída */
+
+.barraVerde {
+  width: 100vw;
+  margin: 0;
+  height: 1px;
+  border: none;
+  background-color: var(--light-green);
+}
+
+.itemTarefa.concluida {
+  border-color: var(--light-green);
+  color: var(--light-green);
+}
+
+.tarefaConcluida.ativo{
+  background-image: url(../img/botao\ check\ inativo.png);
+}
+
+.tituloTarefasConcluidas {
+  color: var(--light-green);
+  font-size: 24px;
+  font-weight: 500;
+  font-family: var(--main-font);
+}
+
+.textoTarefaConcluida {
+  font-family: var(--main-font);
+  color: var(--light-green);
+  font-size: 14px;
+}
+
+.textoTarefaConcluida.off {
+  display: none;
+}
+
+.texto__descricaoDaTarefa.concluida {
+  color: var(--light-green);
+}
+
+.descricaoDaTarefa.on.concluida{
+  border-color: var(--light-green);
+}

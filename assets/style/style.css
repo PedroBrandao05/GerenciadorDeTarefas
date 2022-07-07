@@ -1,0 +1,14 @@
+@import url(./navegacao.css);
+@import url(./tarefas.css);
+
+:root {
+  --dark-green: #070f09;
+  --green: #121a14;
+  --light-green: #57765f;
+  --green-pasta: #76f28f;
+  --main-font: 'Nunito';
+}
+
+body {
+  background-color: var(--dark-green);
+}
