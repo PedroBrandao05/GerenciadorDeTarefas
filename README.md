@@ -16,4 +16,5 @@ Linguagens utilizadas:
 TODO:
 
 - Incrementar Responsividade
-- Incrementar localStorage
+- Incrementar Funcionalidade do botão deletar tarefa
+
