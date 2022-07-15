@@ -1,17 +1,16 @@
 export class Tarefa {
   constructor(
-    id,
     nome,
     descricao,
+    id,
     textoTarefaConcluida,
     divTarefasConcluidas,
-    divTarefas,
-    tarefasLocalStorage
+    divTarefas
   ) {
     this.divTarefasConcluidas = divTarefasConcluidas
     this.divTarefas = divTarefas
     this.nome = nome
-    this.id = id
+    this.validade = true
     this.tarefa = document.createElement('li')
     this.descricao = document.createElement('p')
     this.botaoAbrirDescricao = document.createElement('button')
@@ -19,7 +18,7 @@ export class Tarefa {
     this.botaoTarefaConcluida = document.createElement('button')
     this.botaoRemoverTarefa = document.createElement('button')
     this.divDescricaoTarefa = document.createElement('div')
-    this.tarefasLocalStorage = tarefasLocalStorage
+    this.id = id
 
     this.tarefa.innerHTML = nome
     this.tarefa.classList.add('itemTarefa')
@@ -55,50 +54,38 @@ export class Tarefa {
   //Método para apagar uma tarefa
 
   deletarTarefa() {
-    this.botaoRemoverTarefa.addEventListener('click', () => {
-      if (window.confirm('Deseja mesmo deletar essa tarefa?') === true) {
-        this.tarefasLocalStorage.splice(this.id, 1)
-        localStorage.removeItem('tarefa' + this.id)
-        this.tarefa.remove()
-        if (this.tarefa.classList.contains('concluida')) {
-          this.textoTarefaConcluida.classList.remove('off')
-        }
+
+      this.tarefa.remove()
+      this.validade = false
+      if (this.tarefa.classList.contains('concluida')) {
+        this.textoTarefaConcluida.classList.remove('off')
       }
-    })
   }
 
   //Método para concluir a tarefa
 
   concluirTarefa() {
-    if (
-      window.confirm('Tem certeza que deseja concluir esta tarefa?') === true
-    ) {
-      this.tarefa.remove()
-      this.divDescricaoTarefa.remove()
-      this.tarefa.classList.add('concluida')
-      this.divDescricaoTarefa.classList.add('concluida')
-      this.descricao.classList.add('concluida')
-      this.botaoTarefaConcluida.classList.add('ativo')
-      this.divTarefasConcluidas.append(this.tarefa, this.divDescricaoTarefa)
-      this.textoTarefaConcluida.classList.add('off')
-    }
+    this.tarefa.remove()
+    this.divDescricaoTarefa.remove()
+    this.tarefa.classList.add('concluida')
+    this.divDescricaoTarefa.classList.add('concluida')
+    this.descricao.classList.add('concluida')
+    this.botaoTarefaConcluida.classList.add('ativo')
+    this.divTarefasConcluidas.append(this.tarefa, this.divDescricaoTarefa)
+    this.textoTarefaConcluida.classList.add('off')
   }
 
   //Método para retormar a tarefa
 
   retomarTarefa() {
-    if (
-      window.confirm('Tem certeza que deseja retomar essa tarefa?') === true
-    ) {
-      this.tarefa.remove()
-      this.divDescricaoTarefa.remove()
-      this.tarefa.classList.remove('concluida')
-      this.divDescricaoTarefa.classList.remove('concluida')
-      this.descricao.classList.remove('concluida')
-      this.botaoTarefaConcluida.classList.remove('ativo')
-      this.divTarefas.append(this.tarefa, this.divDescricaoTarefa)
-      this.textoTarefaConcluida.classList.remove('off')
-    }
+    this.tarefa.remove()
+    this.divDescricaoTarefa.remove()
+    this.tarefa.classList.remove('concluida')
+    this.divDescricaoTarefa.classList.remove('concluida')
+    this.descricao.classList.remove('concluida')
+    this.botaoTarefaConcluida.classList.remove('ativo')
+    this.divTarefas.append(this.tarefa, this.divDescricaoTarefa)
+    this.textoTarefaConcluida.classList.remove('off')
   }
 
   // Método que dá função para os botões da tarefa

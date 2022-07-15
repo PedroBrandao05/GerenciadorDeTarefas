@@ -62,7 +62,7 @@
   font-size: 24px;
 }
 
-.formulario{
+.formulario {
   display: none;
 }
 
@@ -99,4 +99,194 @@
   font-family: var(--main-font);
   color: var(--dark-green);
   font-weight: 500;
+}
+
+@media screen and (min-width: 1024px) {
+  .abrir__nav-lateral img{
+   width: 100px;
+  }
+  .abrir__nav-lateral{
+    padding: 2em;
+  }
+
+  .lateral-nav.on{
+    width: 25em;
+    opacity: 1;;
+  }
+
+  .fechar__nav {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-family: var(--main-font);
+    padding-top: 1em;
+    padding-left: 1em;
+    font-size: 30px;
+  }
+  
+  .logo {
+    font-family: var(--main-font);
+    font-size: 28px;
+    color: var(--green-pasta);
+    margin: 4.3em;
+    margin-top: 2.5em;
+  }
+  
+  .logo-bold {
+    font-weight: 800;
+  }
+  
+  .adicionarTarefa {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding-inline: 1.5em;
+    padding-block: 0.5em;
+    margin-left: 2.5em;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 6px;
+    font-family: var(--main-font);
+    font-size: 24px;
+  }
+  
+  .mais {
+    font-size: 26px;
+  }
+  
+  .formulario {
+    display: none;
+  }
+  
+  .formulario.on {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+    gap: 1.50em;
+    align-items: center;
+    margin-left: 0.5em;
+  }
+  
+  .itemFormulario {
+    background-color: white;
+    color: var(--dark-green);
+    font-family: var(--main-font);
+    font-size: 14px;
+    padding-left: 1em;
+    padding-right: 0.5em;
+    padding-block: 0.5em;
+    width: 19em;
+    border: 1px solid white;
+    border-radius: 6px;
+  }
+  
+  .inputEnviar {
+    width: 20.6em;
+    background-color: white;
+    color: var(--dark-green);
+    font-weight: 700;
+  }
+  
+  .itemFormulario::placeholder {
+    font-family: var(--main-font);
+    color: var(--dark-green);
+    font-weight: 500;
+  }
+
+}
+
+@media screen and (min-width: 1728px) {
+  .abrir__nav-lateral img{
+    width: 150px;
+   }
+   .abrir__nav-lateral{
+     padding: 3em;
+   }
+ 
+   .lateral-nav.on{
+     width: 40em;
+     opacity: 1;;
+   }
+ 
+   .fechar__nav {
+     background-color: transparent;
+     border: none;
+     color: white;
+     font-family: var(--main-font);
+     padding-top: 1em;
+     padding-left: 1em;
+     font-size: 45px;
+   }
+   
+   .logo {
+     font-family: var(--main-font);
+     font-size: 40px;
+     color: var(--green-pasta);
+     margin: 5em;
+     margin-top: 2.5em;
+   }
+   
+   .logo-bold {
+     font-weight: 800;
+   }
+   
+   .adicionarTarefa {
+     display: flex;
+     align-items: center;
+     gap: 1em;
+     padding-inline: 1.5em;
+     padding-block: 0.5em;
+     margin-left: 4em;
+     background-color: transparent;
+     color: white;
+     border: 1px solid white;
+     border-radius: 6px;
+     font-family: var(--main-font);
+     font-size: 32px;
+   }
+   
+   .mais {
+     font-size: 36px;
+   }
+   
+   .formulario {
+     display: none;
+   }
+   
+   .formulario.on {
+     display: flex;
+     flex-direction: column;
+     margin-top: 2em;
+     gap: 1.50em;
+     align-items: center;
+     margin-left: 0.5em;
+   }
+   
+   .itemFormulario {
+     background-color: white;
+     color: var(--dark-green);
+     font-family: var(--main-font);
+     font-size: 19px;
+     padding-left: 1em;
+     padding-right: 0.5em;
+     padding-block: 0.5em;
+     width: 19em;
+     border: 1px solid white;
+     border-radius: 6px;
+   }
+   
+   .inputEnviar {
+     width: 20.6em;
+     background-color: white;
+     color: var(--dark-green);
+     font-weight: 700;
+   }
+   
+   .itemFormulario::placeholder {
+     font-family: var(--main-font);
+     color: var(--dark-green);
+     font-weight: 500;
+   }
+ 
 }

@@ -16,77 +16,71 @@ const textoTarefaConcluida = document.querySelector('.textoTarefaConcluida')
 // Arrays que guardam, respectivamente, as classes das tarefas criadas, e os valores de nome e descrição destas
 
 const tarefasClasse = []
-const tarefasLocalStorage = []
+var tarefas = []
+var numTarefas 
 
-console.log(tarefasLocalStorage)
-console.log(tarefasClasse)
+console.log(numTarefas)
+
 console.log(localStorage)
 
-if(localStorage.length > 1){
-  for(let i = 0; i < localStorage.length - 1; i++){
-    tarefasLocalStorage.push(JSON.parse(localStorage.getItem('tarefa' + i)))
-  }
+if (localStorage.length > 0) {
+  tarefas = (JSON.parse(localStorage.getItem('tarefas')))
 }
 
+numTarefas = tarefas.length
+
+console.log(tarefas)
+console.log(tarefasClasse)
 
 
-for(let i = 0; i < tarefasLocalStorage.length; i++){
-   if(JSON.stringify(tarefasLocalStorage[i]) === 'null'){
-    tarefasLocalStorage.splice(i, 1)
-   }
-}
-
-localStorage.clear()
-
-var numTarefas = tarefasLocalStorage.length
-localStorage.setItem('numero de tarefas', numTarefas)
-
-
-console.log(tarefasLocalStorage)
-
-if (tarefasLocalStorage.length > 0) {
-  for (let i = 0; i < tarefasLocalStorage.length; i++) {
-    var tarefaAntiga = new Tarefa(
+if(tarefas.length > 0){
+  for (let i = 0; i < tarefas.length; i++) {
+    var tarefasAntigas = new Tarefa(
+      tarefas[i].nome,
+      tarefas[i].descricao,
       i,
-      tarefasLocalStorage[i].nome,
-      tarefasLocalStorage[i].descricao,
       textoTarefaConcluida,
       divTarefasConcluidas,
       divTarefas,
-      tarefasLocalStorage
+      tarefas
     )
 
-    tarefasClasse.push(tarefaAntiga)
+    tarefasAntigas.adicionaElemento()
 
-    tarefaAntiga.funcionalizaBotoes()
+  divTarefas.append(tarefasAntigas.tarefa, tarefasAntigas.divDescricaoTarefa)
 
-    tarefaAntiga.adicionaElemento()
+  tarefasAntigas.funcionalizaBotoes()
 
-    divTarefas.append(tarefaAntiga.tarefa, tarefaAntiga.divDescricaoTarefa)
+  tarefasAntigas.botaoRemoverTarefa.addEventListener('click', () =>{
+    tarefas.splice(i, 1)
+    numTarefas = tarefas.length
+    console.log(tarefas)
+    if(tarefas.length > 0){
+    localStorage.setItem('tarefas', JSON.stringify(tarefas))
+    } else {
+      localStorage.clear()
+    }
+  })
 
-    localStorage.setItem(
-      'tarefa' + i,
-      JSON.stringify(tarefasLocalStorage[i])
-    )
+  tarefas[i].id = i
+
+  tarefasClasse.push(tarefasAntigas)
   }
 }
 
 function criaTarefa(nome, descricao) {
-  var tarefaAtual = {
-    nome: nome.value,
-    descricao: descricao.value
-  }
 
-  tarefasLocalStorage.push(tarefaAtual)
+  numTarefas = tarefas.length
+
 
   var tarefa = new Tarefa(
-    numTarefas,
     nome.value,
     descricao.value,
+    numTarefas,
     textoTarefaConcluida,
     divTarefasConcluidas,
     divTarefas,
-    tarefasLocalStorage
+    tarefas
   )
 
   tarefa.adicionaElemento()
@@ -95,26 +89,44 @@ function criaTarefa(nome, descricao) {
 
   tarefa.funcionalizaBotoes()
 
-  localStorage.setItem(
-    'tarefa' + numTarefas,
-    JSON.stringify(tarefasLocalStorage[numTarefas])
-  )
+ 
+  let tarefaAtual = {
+    nome: nome.value,
+    descricao: descricao.value,
+    id: numTarefas
+  }
+
+  tarefa.botaoRemoverTarefa.addEventListener('click', () =>{
+    tarefas.splice(tarefa.id, 1)
+    numTarefas = tarefas.length
+    console.log(tarefas)
+    if(tarefas.length > 0){
+    localStorage.setItem('tarefas', JSON.stringify(tarefas))
+    } else {
+      localStorage.clear()
+    }
+  })
+
+  tarefas.push(tarefaAtual)
+
+
 
   tarefasClasse.push(tarefa)
 
-  numTarefas = tarefasLocalStorage.length
+  if(tarefas.length > 0){
+    localStorage.setItem('tarefas', JSON.stringify(tarefas))
+    }
 
-  localStorage.setItem('numero de tarefas', numTarefas)
-
-  
 }
 
 botaoAdicionaTarefa.addEventListener('click', () => {
   criaTarefa(nomeDaTarefa, descricaoDaTarefa)
   nomeDaTarefa.value = ''
   descricaoDaTarefa.value = ''
-  console.log(numTarefas)
-  console.log(tarefasLocalStorage)
+  console.log(tarefas)
   console.log(tarefasClasse)
-  console.log(localStorage)
 })
+
+
+
+
